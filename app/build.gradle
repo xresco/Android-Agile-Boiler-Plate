@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+    defaultConfig {
+        applicationId "com.abed.assignment"
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "FLICKR_API_KEY", "\"b48131cc891e4b264b368ba3b708c43f\""
+            buildConfigField "String", "FLICKR_API_URL", "\"https://api.flickr.com/\""
+            buildConfigField "Integer", "FLICKR_PAGE_LOADING_SIZE", "33"
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "FLICKR_API_KEY", "\"b48131cc891e4b264b368ba3b708c43f\"" // to be changed to the release key
+            buildConfigField "String", "FLICKR_API_URL", "\"https://api.flickr.com/\"" // to be changed to the release key
+            buildConfigField "Integer", "FLICKR_PAGE_LOADING_SIZE", "33"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    final DAGGER_VERSION = '2.2'
+    final BUTTERKNIFE_VERSION = '8.1.0'
+    final SUPPORT_LIBRARY_VERSION = '24.2.1'
+    final RETROFIT_VERSION = '2.1.0'
+
+
+    def daggerCompiler = "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+
+    // APT dependencies
+    apt "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
+    apt 'com.squareup:javapoet:1.7.0'
+    apt daggerCompiler
+
+    compile "com.google.dagger:dagger:$DAGGER_VERSION"
+    compile "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
+    compile group: 'com.google.code.gson', name: 'gson', version: '1.7.2'
+    compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+    compile "com.squareup.retrofit2:adapter-rxjava:$RETROFIT_VERSION"
+    compile 'io.reactivex:rxjava:1.1.4'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+
+
+}

@@ -15,13 +15,8 @@ import dagger.Provides;
  * Provide general dependencies.
  */
 @Module
-public class BaseModule {
+public class TestBaseModule extends BaseModule{
 
-    @Provides
-    @Singleton
-    RxBus provideEventBus() {
-        return new RxBus();
-    }
 
     @Provides
     @Singleton
@@ -29,11 +24,6 @@ public class BaseModule {
         return FlickrService.Creator.newFlickrService();
     }
 
-    @Provides
-    @Singleton
-    EventBusHelper provideEventBusHelper() {
-        return new EventBusHelper(provideEventBus());
-    }
 
     @Provides
     @Singleton

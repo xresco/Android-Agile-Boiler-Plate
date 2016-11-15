@@ -1,6 +1,7 @@
 package com.abed.assignment;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.abed.assignment.injection.component.ApplicationComponent;
 import com.abed.assignment.injection.component.DaggerApplicationComponent;
@@ -11,6 +12,11 @@ public class Application extends android.app.Application {
 
     ApplicationComponent mApplicationComponent;
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d("Application", "onCreate: default application class !");
+    }
 
     public static Application get(Context context) {
         return (Application) context.getApplicationContext();

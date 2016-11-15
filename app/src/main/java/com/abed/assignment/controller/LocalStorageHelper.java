@@ -10,10 +10,6 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
-@Singleton
 public class LocalStorageHelper {
 
     public static final String PREF_FILE_NAME = "android_pref_file";
@@ -21,7 +17,6 @@ public class LocalStorageHelper {
 
     private final SharedPreferences mPref;
 
-    @Inject
     public LocalStorageHelper(@ApplicationContext Context context) {
         mPref = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
     }

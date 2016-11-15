@@ -12,13 +12,11 @@ import rx.Subscriber;
 import rx.schedulers.Schedulers;
 
 
-@Singleton
 public class ApiHelper {
 
     private final FlickrService mFlickrService;
     private final EventBusHelper mEventBusHelper;
 
-    @Inject
     public ApiHelper(FlickrService flickrService, EventBusHelper eventBusHelper) {
         mEventBusHelper = eventBusHelper;
         mFlickrService = flickrService;

@@ -12,7 +12,6 @@ public class EventBusHelper {
 
     private final RxBus mBus;
 
-    @Inject
     public EventBusHelper(RxBus bus) {
         mBus = bus;
     }

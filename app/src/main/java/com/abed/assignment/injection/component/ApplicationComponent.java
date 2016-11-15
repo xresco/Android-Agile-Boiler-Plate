@@ -8,10 +8,10 @@ import com.abed.assignment.injection.ApplicationContext;
 import com.abed.assignment.injection.module.ApplicationModule;
 import com.abed.assignment.injection.module.BaseModule;
 
-
 import javax.inject.Singleton;
 
 import dagger.Component;
+import timber.log.Timber;
 
 @Singleton
 @Component(modules = {ApplicationModule.class, BaseModule.class})
@@ -24,6 +24,8 @@ public interface ApplicationComponent {
     Application application();
 
     DataManager dataManager();
+
+    Timber.Tree loggingTree();
 
 
 }

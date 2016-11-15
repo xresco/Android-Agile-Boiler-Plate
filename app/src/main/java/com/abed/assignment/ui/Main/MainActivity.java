@@ -25,6 +25,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import timber.log.Timber;
 
 public class MainActivity extends BaseActivity implements MainMvpView {
 
@@ -48,6 +49,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Timber.d("oncreate ");
         getActivityComponent().inject(this);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
@@ -73,10 +75,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
             }
         });
         fabButton.setOnClickListener(v -> HistoryActivity.startActivity(v.getContext()));
-
-        progressLoading.setVisibility(View.VISIBLE);
-        mMainPresenter.search("test");
-        mIsLoading = true;
     }
 
 

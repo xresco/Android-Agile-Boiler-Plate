@@ -24,8 +24,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "FLICKR_API_KEY", "\"b48131cc891e4b264b368ba3b708c43f\"" // to be changed to the release key
-            buildConfigField "String", "FLICKR_API_URL", "\"https://api.flickr.com/\"" // to be changed to the release key
+            buildConfigField "String", "FLICKR_API_KEY", "\"b48131cc891e4b264b368ba3b708c43f\""
+            // to be changed to the release key
+            buildConfigField "String", "FLICKR_API_URL", "\"https://api.flickr.com/\""
+            // to be changed to the release key
             buildConfigField "Integer", "FLICKR_PAGE_LOADING_SIZE", "33"
         }
     }
@@ -49,24 +51,27 @@ dependencies {
     apt 'com.squareup:javapoet:1.7.0'
     apt daggerCompiler
 
+    androidTestApt daggerCompiler
+
     compile "com.google.dagger:dagger:$DAGGER_VERSION"
     compile "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
-    compile group: 'com.google.code.gson', name: 'gson', version: '1.7.2'
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.4'
     compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.jakewharton.timber:timber:4.3.1'
     compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
     compile "com.squareup.retrofit2:adapter-rxjava:$RETROFIT_VERSION"
     compile 'io.reactivex:rxjava:1.1.4'
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+
     testCompile 'junit:junit:4.12'
 
-//    androidTestCompile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
-//    androidTestCompile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
-    androidTestApt daggerCompiler
+
 }

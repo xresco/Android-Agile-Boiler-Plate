@@ -1,12 +1,9 @@
 package com.abed.assignment.controller;
 
 import com.abed.assignment.BuildConfig;
-import com.abed.assignment.data.eventBus.BusEvenSearchItemsLoaded;
+import com.abed.assignment.data.local.eventBus.BusEvenSearchItemsLoaded;
 import com.abed.assignment.data.model.SearchResult;
 import com.abed.assignment.data.remote.FlickrService;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
 
 import rx.Subscriber;
 import rx.schedulers.Schedulers;
@@ -14,8 +11,8 @@ import rx.schedulers.Schedulers;
 
 public class ApiHelper {
 
-    private final FlickrService mFlickrService;
-    private final EventBusHelper mEventBusHelper;
+    protected final FlickrService mFlickrService;
+    protected final EventBusHelper mEventBusHelper;
 
     public ApiHelper(FlickrService flickrService, EventBusHelper eventBusHelper) {
         mEventBusHelper = eventBusHelper;
@@ -29,7 +26,6 @@ public class ApiHelper {
                 .subscribe(new Subscriber<SearchResult>() {
                     @Override
                     public void onCompleted() {
-
                     }
 
                     @Override
@@ -41,7 +37,7 @@ public class ApiHelper {
                     @Override
                     public void onNext(SearchResult result) {
                         if (result.stat.toLowerCase().equals("ok"))
-                            mEventBusHelper.postEventSafely(new BusEvenSearchItemsLoaded(result.photosPage, page));
+                        mEventBusHelper.postEventSafely(new BusEvenSearchItemsLoaded(result.photosPage, page));
                     }
                 });
     }

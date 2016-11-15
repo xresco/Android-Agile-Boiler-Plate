@@ -1,12 +1,6 @@
 package com.abed.assignment;
 
-import com.abed.assignment.controller.DataManager;
-import com.abed.assignment.controller.LocalStorageHelper;
-import com.abed.assignment.injection.component.ApplicationComponent;
-
 import org.junit.Test;
-
-import javax.inject.Inject;
 
 import static org.junit.Assert.*;
 

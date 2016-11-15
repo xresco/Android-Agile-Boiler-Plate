@@ -1,22 +1,22 @@
-package com.abed.assignment.controller;
+package com.abed.assignment.data.local;
 
-import android.os.Handler;
+import android.util.Log;
 
-import rx.*;
-import rx.functions.*;
-import rx.subjects.*;
+import rx.Subscription;
+import rx.functions.Action1;
+import rx.subjects.PublishSubject;
+import rx.subjects.SerializedSubject;
+import rx.subjects.Subject;
 
 public class RxBus {
     private final Subject<Object, Object> mBusSubject = new SerializedSubject<>(PublishSubject.create());
-    private final Handler handler = new Handler();
 
     public <T> Subscription register(final Class<T> eventClass, Action1<T> onNext) {
         return mBusSubject
                 .filter(event -> event.getClass().equals(eventClass))
                 .map(obj -> (T) obj)
-                .subscribe(onNext, throwable -> {
-                    throwable.printStackTrace();
-                });
+                .subscribe(onNext, throwable -> {throwable.printStackTrace();
+                    Log.d("Error", "register: "+throwable.getMessage());});
     }
 
     public <T> Subscription register(final Class<T> eventClass, Action1<T> onNext, Action1<Throwable> onError) {

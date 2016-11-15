@@ -23,4 +23,14 @@ public class PhotosPage {
     @SerializedName("photo")
     public List<Photo> photos = new ArrayList<Photo>();
 
+    public PhotosPage(Integer page, Integer pages, Integer perpage, String total, List<Photo> photos) {
+        this.page = page;
+        this.pages = pages;
+        this.perpage = perpage;
+        this.total = total;
+        this.photos = photos;
+    }
+
+    public PhotosPage() {
+    }
 }

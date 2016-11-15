@@ -3,6 +3,8 @@ package com.abed.assignment.controller;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.abed.assignment.data.local.RxBus;
+
 import javax.inject.Inject;
 
 /**
@@ -12,6 +14,7 @@ public class EventBusHelper {
 
     private final RxBus mBus;
 
+    @Inject
     public EventBusHelper(RxBus bus) {
         mBus = bus;
     }

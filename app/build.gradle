@@ -3,12 +3,12 @@ apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "24.0.3"
     defaultConfig {
         applicationId "com.abed.assignment"
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -38,7 +38,7 @@ android {
 dependencies {
     final DAGGER_VERSION = '2.2'
     final BUTTERKNIFE_VERSION = '8.1.0'
-    final SUPPORT_LIBRARY_VERSION = '24.2.1'
+    final SUPPORT_LIBRARY_VERSION = '25.0.0'
     final RETROFIT_VERSION = '2.1.0'
 
 
@@ -63,11 +63,10 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 
-    androidTestCompile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
+//    androidTestCompile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
-    androidTestCompile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
-
-
+//    androidTestCompile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
+    androidTestApt daggerCompiler
 }

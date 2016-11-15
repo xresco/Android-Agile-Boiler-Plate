@@ -2,7 +2,8 @@ package com.abed.assignment.injection.module;
 
 import com.abed.assignment.controller.ApiHelper;
 import com.abed.assignment.controller.EventBusHelper;
-import com.abed.assignment.controller.RxBus;
+import com.abed.assignment.controller.TestApiHelper;
+import com.abed.assignment.data.local.RxBus;
 import com.abed.assignment.data.remote.FlickrService;
 
 import javax.inject.Singleton;
@@ -15,7 +16,13 @@ import dagger.Provides;
  * Provide general dependencies.
  */
 @Module
-public class TestBaseModule extends BaseModule{
+public class TestBaseModule {
+
+    @Provides
+    @Singleton
+    RxBus provideEventBus() {
+        return new RxBus();
+    }
 
 
     @Provides
@@ -24,10 +31,16 @@ public class TestBaseModule extends BaseModule{
         return FlickrService.Creator.newFlickrService();
     }
 
+    @Provides
+    @Singleton
+    EventBusHelper provideEventBusHelper(RxBus bus) {
+        return new EventBusHelper(bus);
+    }
 
     @Provides
     @Singleton
-    ApiHelper provideApiHelper() {
-        return new ApiHelper(provideFlickrService(), provideEventBusHelper());
+    ApiHelper provideApiHelper(FlickrService flickrService, EventBusHelper eventBusHelper) {
+        return new TestApiHelper(flickrService, eventBusHelper);
     }
+
 }

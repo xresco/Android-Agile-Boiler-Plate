@@ -10,14 +10,17 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class LocalStorageHelper {
+/**
+ * Provides helper methods to save values and retreive from shared pref
+ */
+public class SharedPrefHelper {
 
     public static final String PREF_FILE_NAME = "android_pref_file";
     public static final String PREF_HISTORY_KEY = "PREF_HISTORY_KEY";
 
     private final SharedPreferences mPref;
 
-    public LocalStorageHelper(@ApplicationContext Context context) {
+    public SharedPrefHelper(@ApplicationContext Context context) {
         mPref = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
     }
 
@@ -37,7 +40,8 @@ public class LocalStorageHelper {
         String dataStr = mPref.getString(PREF_HISTORY_KEY, null);
         if (dataStr == null)
             return new ArrayList<>();
-        Type type = new TypeToken<ArrayList<String>>() {}.getType();
+        Type type = new TypeToken<ArrayList<String>>() {
+        }.getType();
         ArrayList<String> searchHistory = new Gson().fromJson(dataStr, type);
         return searchHistory;
     }

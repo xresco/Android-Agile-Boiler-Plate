@@ -78,6 +78,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
 
         public void setItem(final Photo photo) {
             String url = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg";
+            Log.d("log::", "setItem: " + photo.farm + " " + photo.server + " " + photo.id + " " + photo.secret);
             Glide.with((imageContent).getContext().getApplicationContext())
                     .load(url)
                     .thumbnail(0.1f)

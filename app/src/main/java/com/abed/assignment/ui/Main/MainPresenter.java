@@ -1,9 +1,10 @@
 package com.abed.assignment.ui.Main;
 
-import com.abed.assignment.data.eventBus.BusEvenSearchItemsLoaded;
-import com.abed.assignment.controller.DataManager;
-import com.abed.assignment.ui.base.BasePresenter;
+import android.util.Log;
 
+import com.abed.assignment.controller.DataManager;
+import com.abed.assignment.data.local.eventBus.BusEvenSearchItemsLoaded;
+import com.abed.assignment.ui.base.BasePresenter;
 
 import javax.inject.Inject;
 

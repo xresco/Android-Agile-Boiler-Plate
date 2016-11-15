@@ -3,8 +3,7 @@ package com.abed.assignment.injection.module;
 import android.app.Application;
 import android.content.Context;
 
-import com.abed.assignment.controller.ApiHelper;
-import com.abed.assignment.controller.LocalStorageHelper;
+import com.abed.assignment.controller.SharedPrefHelper;
 import com.abed.assignment.injection.ApplicationContext;
 
 
@@ -39,8 +38,8 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    LocalStorageHelper provideLocalStorageHelper() {
-        return new LocalStorageHelper(mApplication);
+    SharedPrefHelper provideSharedPrefHelper() {
+        return new SharedPrefHelper(mApplication);
     }
 
 }

@@ -7,14 +7,14 @@ import javax.inject.Singleton;
 public class DataManager {
 
     private final ApiHelper mApiHelper;
-    private final LocalStorageHelper mLocalStorageHelper;
+    private final SharedPrefHelper mSharedPrefHelper;
     private final EventBusHelper mEventBusHelper;
 
     @Inject
-    public DataManager(LocalStorageHelper localStorageHelper,
+    public DataManager(SharedPrefHelper sharedPrefHelper,
                        EventBusHelper eventBusHelper,
                        ApiHelper apiHelper) {
-        mLocalStorageHelper = localStorageHelper;
+        mSharedPrefHelper = sharedPrefHelper;
         mEventBusHelper = eventBusHelper;
         mApiHelper = apiHelper;
     }
@@ -27,7 +27,7 @@ public class DataManager {
         return mApiHelper;
     }
 
-    public LocalStorageHelper getLocalStorageHelper() {
-        return mLocalStorageHelper;
+    public SharedPrefHelper getLocalStorageHelper() {
+        return mSharedPrefHelper;
     }
 }

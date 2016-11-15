@@ -32,4 +32,18 @@ public class Photo {
     @SerializedName("isfamily")
     public Integer isfamily;
 
+    public Photo() {
+    }
+
+    public Photo(String id, String owner, String secret, String server, Integer farm, String title, Integer ispublic, Integer isfriend, Integer isfamily) {
+        this.id = id;
+        this.owner = owner;
+        this.secret = secret;
+        this.server = server;
+        this.farm = farm;
+        this.title = title;
+        this.ispublic = ispublic;
+        this.isfriend = isfriend;
+        this.isfamily = isfamily;
+    }
 }

@@ -1,4 +1,4 @@
-package com.abed.assignment.data.eventBus;
+package com.abed.assignment.data.local.eventBus;
 
 import com.abed.assignment.data.model.PhotosPage;
 

@@ -1,9 +1,11 @@
-package com.abed.assignment;
+package com.abed.assignment.testing.rule;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
+
+import com.abed.assignment.Application;
 
 /**
  * Created by Abed on 11/12/16.

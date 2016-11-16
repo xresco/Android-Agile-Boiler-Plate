@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
+
 android {
     compileSdkVersion 25
     buildToolsVersion "24.0.3"
@@ -19,6 +20,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "FLICKR_API_KEY", "\"b48131cc891e4b264b368ba3b708c43f\""
             buildConfigField "String", "FLICKR_API_URL", "\"https://api.flickr.com/\""
+            buildConfigField "String", "GOOGLE_ANALYTICS_TRACKING_ID", "\"UA-87508523-1\""
             buildConfigField "Integer", "FLICKR_PAGE_LOADING_SIZE", "33"
         }
         release {
@@ -27,6 +29,7 @@ android {
             buildConfigField "String", "FLICKR_API_KEY", "\"b48131cc891e4b264b368ba3b708c43f\""
             // to be changed to the release key
             buildConfigField "String", "FLICKR_API_URL", "\"https://api.flickr.com/\""
+            buildConfigField "String", "GOOGLE_ANALYTICS_TRACKING_ID", "\"UA-87508523-1\""
             // to be changed to the release key
             buildConfigField "Integer", "FLICKR_PAGE_LOADING_SIZE", "33"
         }
@@ -42,6 +45,7 @@ dependencies {
     final BUTTERKNIFE_VERSION = '8.1.0'
     final SUPPORT_LIBRARY_VERSION = '25.0.1'
     final RETROFIT_VERSION = '2.1.0'
+    final PLAY_SERVICES_VERSION = '9.8.0'
 
 
     def daggerCompiler = "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
@@ -64,6 +68,7 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
     compile "com.squareup.retrofit2:adapter-rxjava:$RETROFIT_VERSION"
+    compile "com.google.android.gms:play-services-analytics:$PLAY_SERVICES_VERSION"
     compile 'io.reactivex:rxjava:1.1.4'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -75,3 +80,5 @@ dependencies {
     androidTestCompile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
 
 }
+
+apply plugin: 'com.google.gms.google-services'

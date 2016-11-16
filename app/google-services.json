@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "305568469791",
+    "project_id": "agile-boiler-plater"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305568469791:android:6351c4d706fea8fb",
+        "android_client_info": {
+          "package_name": "com.abed.assignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDus3qeiraZ7r-aM4VmzFW-hTRrK5E_oYI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-87508523-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,9 +1,9 @@
 package com.abed.assignment.injection.module;
 
-import com.abed.assignment.Application;
+import com.abed.assignment.controller.AnalyticsHelper;
 import com.abed.assignment.controller.ApiHelper;
 import com.abed.assignment.controller.EventBusHelper;
-import com.abed.assignment.controller.SharedPrefHelper;
+import com.abed.assignment.controller.LocalFileHelper;
 import com.abed.assignment.data.local.RxBus;
 import com.abed.assignment.data.remote.FlickrService;
 
@@ -42,5 +42,17 @@ public class BaseModule {
     @Singleton
     ApiHelper provideApiHelper(FlickrService flickrService, EventBusHelper eventBusHelper) {
         return new ApiHelper(flickrService, eventBusHelper);
+    }
+
+    @Provides
+    @Singleton
+    LocalFileHelper provideLocalStorageHelper() {
+        return new LocalFileHelper();
+    }
+
+    @Provides
+    @Singleton
+    AnalyticsHelper provideAnalyticsHelper() {
+        return new AnalyticsHelper();
     }
 }

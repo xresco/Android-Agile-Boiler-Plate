@@ -3,6 +3,7 @@ package com.abed.assignment.injection.component;
 import android.app.Application;
 import android.content.Context;
 
+import com.abed.assignment.controller.AnalyticsHelper;
 import com.abed.assignment.controller.DataManager;
 import com.abed.assignment.injection.ApplicationContext;
 import com.abed.assignment.injection.module.ApplicationModule;
@@ -24,6 +25,8 @@ public interface ApplicationComponent {
     Application application();
 
     DataManager dataManager();
+
+    AnalyticsHelper analyticsHelper();
 
     Timber.Tree loggingTree();
 

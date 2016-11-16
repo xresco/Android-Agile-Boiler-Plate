@@ -1,8 +1,12 @@
 package com.abed.assignment.injection.module;
 
+import com.abed.assignment.controller.AnalyticsHelper;
 import com.abed.assignment.controller.ApiHelper;
 import com.abed.assignment.controller.EventBusHelper;
+import com.abed.assignment.controller.LocalFileHelper;
+import com.abed.assignment.controller.TestAnalyticsHelper;
 import com.abed.assignment.controller.TestApiHelper;
+import com.abed.assignment.controller.TestLocalFileHelper;
 import com.abed.assignment.data.local.RxBus;
 import com.abed.assignment.data.remote.FlickrService;
 
@@ -41,6 +45,18 @@ public class TestBaseModule {
     @Singleton
     ApiHelper provideApiHelper(FlickrService flickrService, EventBusHelper eventBusHelper) {
         return new TestApiHelper(flickrService, eventBusHelper);
+    }
+
+    @Provides
+    @Singleton
+    LocalFileHelper provideLocalFileHelper() {
+        return new TestLocalFileHelper();
+    }
+
+    @Provides
+    @Singleton
+    AnalyticsHelper provideAnalyticsHelper() {
+        return new TestAnalyticsHelper();
     }
 
 }

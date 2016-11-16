@@ -27,8 +27,29 @@ The boiler plates consist of 4 layers: View, Presenter, Controller, Model. The c
 
 
 ## Getting Started
+Libraries and tools included:
+- Support libraries
+- RecyclerViews and CardViews
+- [RxJava](https://github.com/ReactiveX/RxJava)
+- [Retrofit 2](http://square.github.io/retrofit/)
+- [Retrolambda](https://github.com/orfjackal/retrolambda)
+- [Dagger 2](http://google.github.io/dagger/)
+- [DbFlow](https://github.com/Raizlabs/DBFlow)
+- [Butterknife](https://github.com/JakeWharton/butterknife)
+- [Timber](https://github.com/JakeWharton/timber)
+- [Glide](https://github.com/bumptech/glide)
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+- Functional tests with [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html)
+- [Robolectric](http://robolectric.org/)
+- [Mockito](http://mockito.org/)
+
+
+## Requirements
+
+- JDK 1.8
+- [Android SDK](http://developer.android.com/sdk/index.html).
+- Android N [(API 24) ](http://developer.android.com/tools/revisions/platforms.html).
+- Latest Android SDK Tools and build tools.
 
 ### Prerequisites
 

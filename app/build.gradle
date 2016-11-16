@@ -40,7 +40,7 @@ android {
 dependencies {
     final DAGGER_VERSION = '2.2'
     final BUTTERKNIFE_VERSION = '8.1.0'
-    final SUPPORT_LIBRARY_VERSION = '25.0.0'
+    final SUPPORT_LIBRARY_VERSION = '25.0.1'
     final RETROFIT_VERSION = '2.1.0'
 
 

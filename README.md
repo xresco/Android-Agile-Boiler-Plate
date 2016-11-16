@@ -7,7 +7,7 @@ The project is fully based in Dependency Injection design pattern using Dagger2.
 The dependencies currently handled by the boiler plate are the following:
 - Database dependency: encapsulates all the database operations.
 - Shared preferences dependency: deals with shared preferences.
-- Local Storage dependency: which deals with saving on files.
+- Local files dependency: which deals with saving on files.
 - Analytics dependency: covers all the operation of reporting events to your analytics backend (GA, Segment, FB, Flurry ..)
 - Logging dependency: encapsulates all the operations related to logging to your console
 - Api dependency: encapsulates all the API related operations
@@ -15,7 +15,7 @@ The dependencies currently handled by the boiler plate are the following:
 
 The power of dependency injection comes really handy especially for testing since you can easily switch your dependencies in the test environment to dummy dependencies.
 
-As an example, you can change your Api dependency on testing environment so it returns a specific response without doing the actual call to your server. Share pref dependency can be overridden to return specific values for certain keys instead of saving and retrieving actual values in your test device, and the same applies for local storage and data dependencies. Both logging and analytics dependencies can be overridden to deliver the logs and reports to a server or file to be analyzed after running the tests instead of the console or the actual analytics server.
+As an example, you can change your Api dependency on testing environment so it returns a specific response without doing the actual call to your server. Share pref dependency can be overridden to return specific values for certain keys instead of saving and retrieving actual values in your test device, and the same applies for local files and data dependencies. Both logging and analytics dependencies can be overridden to deliver the logs and reports to a server or file to be analyzed after running the tests instead of the console or the actual analytics server.
 
 Moreover, dependency injection makes it really easy when you need to change certain dependencies let's say moving from google analytics to flurry, Or migrating from DbFlow database to SQLBrite.
 

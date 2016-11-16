@@ -1,10 +1,8 @@
-# Simplex Boiler Plate
+# Agile Boiler Plate
 
 This boilerplate covers the needs of most of the Android apps that you can think of. It's simple, well architected and easily adjustable to your specific requirements.
 
-The boiler plate is based on MVP architecture (Model, View, Presenter) which is better than MVC when it comes to coupling. MVP makes your view code way cleaner than when using MVC, since the Views, Activities and the fragments will only have the code related to rendering the customizing the UI and no interactions with the controllers.
-
-The project is fully based in Dependency Injection design pattern using Dagger2. Which adds another layer of separation and makes things even less coupled.
+The project is fully based in Dependency Injection design pattern using Dagger2. Which adds a layer of separation and makes things even less coupled.
 
 The dependencies currently handled by the boiler plate are the following:
 - Database dependency: encapsulates all the database operations.
@@ -23,6 +21,11 @@ Moreover, dependency injection makes it really easy when you need to change cert
 
 The boiler plates consist of 4 layers: View, Presenter, Controller, Model. The communication between the layers is all done using EventBus Design pattern. I'm using a custom bus implemented using RxJava.
 
+
+
+## Architecture
+
+The boiler plate is based on MVP architecture (Model, View, Presenter) which is better than MVC when it comes to coupling. MVP makes your view code way cleaner than when using MVC, since the Views, Activities and the fragments will only have the code related to rendering the customizing the UI and no interactions with the controllers.
 
 ![MVP architecture](https://s11.postimg.org/t10gd5p83/Screen_Shot_2016_11_16_at_3_34_01_PM.png)
 

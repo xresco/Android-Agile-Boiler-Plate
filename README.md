@@ -29,7 +29,7 @@ The boiler plate is based on MVP architecture (Model, View, Presenter) which is 
 
 
 
-![MVP architecture](https://s11.postimg.org/6duope06r/Screen_Shot_2016_11_16_at_3_51_50_PM.png)
+![MVP architecture](https://s21.postimg.org/ce0tc11qf/Screen_Shot_2016_11_17_at_12_04_58_PM.png)
 
 
 

@@ -57,6 +57,7 @@ dependencies {
     apt daggerCompiler
     apt "com.github.Raizlabs.DBFlow:dbflow-processor:$DBFLOW_VERSION"
     androidTestApt daggerCompiler
+    testApt daggerCompiler
 
 
     compile "com.github.Raizlabs.DBFlow:dbflow-core:$DBFLOW_VERSION"
@@ -78,10 +79,15 @@ dependencies {
 
 
     testCompile 'junit:junit:4.12'
+    testCompile 'com.android.support.test:runner:0.5'
+    testCompile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+    testCompile "org.robolectric:robolectric:3.1.4"
+    testCompile 'org.assertj:assertj-core:1.7.1'
 
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+
 
 }
 

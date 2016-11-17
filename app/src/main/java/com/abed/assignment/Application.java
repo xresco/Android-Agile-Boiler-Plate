@@ -16,6 +16,7 @@ public class Application extends android.app.Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //Init Timber
         Timber.plant(getComponent().loggingTree());
     }
 

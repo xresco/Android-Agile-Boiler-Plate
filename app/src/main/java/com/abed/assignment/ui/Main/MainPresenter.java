@@ -1,7 +1,5 @@
 package com.abed.assignment.ui.Main;
 
-import android.util.Log;
-
 import com.abed.assignment.controller.DataManager;
 import com.abed.assignment.data.local.eventBus.BusEvenSearchItemsLoaded;
 import com.abed.assignment.ui.base.BasePresenter;
@@ -50,12 +48,10 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
         this.searchKey = searchKey;
         this.page = 1;
         dataManager.getApiHelper().searchInFlickr(searchKey, 1);
-        dataManager.getLocalStorageHelper().addSearchKeyToHistory(searchKey);
+        dataManager.getDatabaseHelper().addSearchKeyToHistory(searchKey);
     }
 
     public void loadNextPage() {
         dataManager.getApiHelper().searchInFlickr(searchKey, page++);
     }
-
-
 }

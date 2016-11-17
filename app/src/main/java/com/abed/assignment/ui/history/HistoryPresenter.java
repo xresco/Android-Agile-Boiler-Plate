@@ -1,7 +1,7 @@
 package com.abed.assignment.ui.history;
 
-import com.abed.assignment.data.local.eventBus.BusEvenSearchItemsLoaded;
 import com.abed.assignment.controller.DataManager;
+import com.abed.assignment.data.local.eventBus.BusEvenSearchItemsLoaded;
 import com.abed.assignment.ui.base.BasePresenter;
 
 import javax.inject.Inject;
@@ -25,7 +25,7 @@ public class HistoryPresenter extends BasePresenter<HistoryMvpView> {
         super.attachView(mvpView);
         searchSubscription = dataManager.getEventBusHelper().getBus()
                 .register(BusEvenSearchItemsLoaded.class,
-                        event -> getMvpView().showItems(dataManager.getLocalStorageHelper().getSearchHistory())
+                        event -> getMvpView().showItems(dataManager.getDatabaseHelper().getSearchHistory())
                 );
     }
 
@@ -37,7 +37,7 @@ public class HistoryPresenter extends BasePresenter<HistoryMvpView> {
     }
 
     public void loadHistory() {
-        getMvpView().showItems(dataManager.getLocalStorageHelper().getSearchHistory());
+        getMvpView().showItems(dataManager.getDatabaseHelper().getSearchHistory());
     }
 
 

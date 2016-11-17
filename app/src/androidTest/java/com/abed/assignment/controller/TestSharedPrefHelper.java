@@ -16,6 +16,15 @@ public class TestSharedPrefHelper extends SharedPrefHelper {
         super(context);
     }
 
+    @Override
+    public void addSearchKeyToHistory(String searchKey) {
+    }
+
+    @Override
+    public void clear() {
+    }
+
+    @Override
     public ArrayList<String> getSearchHistory() {
         ArrayList<String> list = new ArrayList<>();
         list.add("a");

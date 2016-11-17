@@ -3,8 +3,10 @@ package com.abed.assignment.injection.module;
 import android.app.Application;
 import android.content.Context;
 
+import com.abed.assignment.controller.DatabaseHelper;
 import com.abed.assignment.controller.SharedPrefHelper;
 import com.abed.assignment.controller.TestCrashReportingTree;
+import com.abed.assignment.controller.TestDatabaseHelper;
 import com.abed.assignment.controller.TestSharedPrefHelper;
 import com.abed.assignment.injection.ApplicationContext;
 
@@ -44,6 +46,12 @@ public class TestApplicationModule {
         return new TestSharedPrefHelper(mApplication);
     }
 
+
+    @Provides
+    @Singleton
+    DatabaseHelper provideDbHelper() {
+        return new TestDatabaseHelper(mApplication);
+    }
 
     @Provides
     @Singleton

@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.abed.assignment.BuildConfig;
 import com.abed.assignment.controller.CrashReportingTree;
+import com.abed.assignment.controller.DatabaseHelper;
 import com.abed.assignment.controller.SharedPrefHelper;
 import com.abed.assignment.injection.ApplicationContext;
 
@@ -43,6 +44,13 @@ public class ApplicationModule {
     SharedPrefHelper provideSharedPrefHelper() {
         return new SharedPrefHelper(mApplication);
     }
+
+    @Provides
+    @Singleton
+    DatabaseHelper provideDbHelper() {
+        return new DatabaseHelper(mApplication);
+    }
+
 
     @Provides
     @Singleton

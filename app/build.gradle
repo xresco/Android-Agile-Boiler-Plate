@@ -14,6 +14,33 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        // You must set up an environment var before release signing
+        // Run: export APP_KEY={password}
+        release {
+            storeFile file('/Users/abed/.android/debug.keystore')
+            keyAlias 'androiddebugkey'
+            storePassword 'android'
+            keyPassword 'android'
+        }
+        debug {
+            storeFile file('keystore/debug.keystore')
+            keyAlias 'androiddebugkey'
+            storePassword 'android'
+            keyPassword 'android'
+        }
+    }
+
+    sourceSets {
+        String sharedTestDir = 'src/sharedTest/java'
+        test {
+            java.srcDir sharedTestDir
+        }
+        androidTest {
+            java.srcDir sharedTestDir
+        }
+    }
     buildTypes {
         debug {
             minifyEnabled false
@@ -24,14 +51,43 @@ android {
             buildConfigField "Integer", "FLICKR_PAGE_LOADING_SIZE", "33"
         }
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "FLICKR_API_KEY", "\"b48131cc891e4b264b368ba3b708c43f\""
             // to be changed to the release key
             buildConfigField "String", "FLICKR_API_URL", "\"https://api.flickr.com/\""
             buildConfigField "String", "GOOGLE_ANALYTICS_TRACKING_ID", "\"UA-87508523-1\""
             // to be changed to the release key
             buildConfigField "Integer", "FLICKR_PAGE_LOADING_SIZE", "33"
+
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            debuggable true
+            multiDexEnabled false
+
+            proguardFile '../proguard/proguard-butterknife-7.pro'
+            proguardFile '../proguard/proguard-androidannotations.pro'
+            proguardFile '../proguard/proguard-rx-java.pro'
+            proguardFile '../proguard/proguard-square-dagger.pro'
+            proguardFile '../proguard/proguard-google-analytics.pro'
+            proguardFile '../proguard/proguard-crashlytics-2.pro'
+            proguardFile '../proguard/proguard-facebook-stetho.pro'
+            proguardFile '../proguard/proguard-facebook.pro'
+            proguardFile '../proguard/proguard-glide.pro'
+            proguardFile '../proguard/proguard-google-play-services.pro'
+            proguardFile '../proguard/proguard-gson.pro'
+            proguardFile '../proguard/proguard-jackson-2.pro'
+            proguardFile '../proguard/proguard-lock.pro'
+            proguardFile '../proguard/proguard-retrolambda.pro'
+            proguardFile '../proguard/proguard-dbflow.pro'
+            proguardFile '../proguard/proguard-square-okhttp3.pro'
+            proguardFile '../proguard/proguard-square-otto.pro'
+            proguardFile '../proguard/proguard-square-retrofit2.pro'
+            proguardFile '../proguard/proguard-support-design.pro'
+            proguardFile '../proguard/proguard-support-v7-appcompat.pro'
+            proguardFile '../proguard/proguard-support-v7-cardview.pro'
+            proguardFile '../proguard/proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -82,11 +138,20 @@ dependencies {
     testCompile 'com.android.support.test:runner:0.5'
     testCompile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
     testCompile "org.robolectric:robolectric:3.1.4"
-    testCompile 'org.assertj:assertj-core:1.7.1'
+    testCompile 'com.squareup.assertj:assertj-android:1.1.1'
 
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2.2') {
+        // Necessary to avoid version conflicts
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+    }
 
 
 }

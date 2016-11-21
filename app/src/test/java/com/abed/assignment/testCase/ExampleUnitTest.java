@@ -37,8 +37,6 @@ public class ExampleUnitTest {
         Assertions.assertThat(imgRec.getAdapter().getItemCount()).isEqualTo(0);
         searchView.setQuery("test", true);
         Assertions.assertThat(imgRec.getAdapter().getItemCount()).isEqualTo(6);
-        imgRec.scrollToPosition(7);
-        Assertions.assertThat(imgRec.getAdapter().getItemCount()).isEqualTo(12);
     }
 
 }

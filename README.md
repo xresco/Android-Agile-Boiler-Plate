@@ -1,5 +1,7 @@
 # Agile Boiler Plate
 
+The main task at the innovation labs of Avast is to find new ideas to work on, prototype these ideas, and quickly implement them. And because this nature of our work we might end up building so many ideas in a very short time. And since quality is something we can’t sacrifice and since it usually requires additional time we decided to come up with a solid, lean, readable, upgradable, testable boilerplate for our Android apps. We named it Agile Boiler Plate.
+
 This boilerplate covers the needs of most of the Android apps that you can think of. It's simple, well architected and easily adjustable to your specific requirements.
 
 The project is fully based in Dependency Injection design pattern using Dagger2. Which adds a layer of separation and makes things even less coupled.
@@ -75,4 +77,8 @@ This project is licensed under  Apache License Version 2.0 - see the [LICENSE.md
 ## Acknowledgments
 
 * [Ribot Boiler Plate](https://github.com/ribot/android-boilerplate)
-* [Mindvalley](www.mindvalley.com)
+* [Avast](https://www.avast.com)
+
+
+
+![MVP architecture](http://files.avast.com/files/marketing/logos/logo-rgb.jpg)

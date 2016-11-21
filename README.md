@@ -57,12 +57,28 @@ Libraries and tools included:
 - [Dagger 2](http://google.github.io/dagger/)
 - [DbFlow](https://github.com/Raizlabs/DBFlow)
 - [Butterknife](https://github.com/JakeWharton/butterknife)
+
 - [Timber](https://github.com/JakeWharton/timber)
 - [Glide](https://github.com/bumptech/glide)
 - Functional tests with [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html)
 - [Robolectric](http://robolectric.org/)
 - [Mockito](http://mockito.org/)
 
+
+
+### Tests
+
+To run **unit** tests on your machine:
+
+```
+./gradlew test
+```
+
+To run **instrumentation** tests on connected devices:
+
+```
+./gradlew connectedAndroidTest
+``` 
 
 
 ## Authors

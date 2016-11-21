@@ -2,7 +2,7 @@
 # Default Proguard.android.txt file: https://android.googlesource.com/platform/tools/base/+/HEAD/files/proguard-android.txt
 
 # Keep all our project files
--keep class com.mindvalley.mlm.** { *; }
+-keep class com.abed.assignment.** { *; }
 
 # Uncomment to get better output
 #-verbose
@@ -19,7 +19,7 @@
 -dontwarn android.content.**
 -dontwarn android.util.**
 -dontwarn android.view.**
-
+-dontobfuscate
 # Remove logging
 -assumenosideeffects class android.util.Log {
     public static boolean isLoggable(java.lang.String, int);

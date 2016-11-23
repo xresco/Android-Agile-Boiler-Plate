@@ -24,6 +24,21 @@ Moreover, dependency injection makes it really easy when you need to change cert
 The boiler plates consist of 4 layers: View, Presenter, Controller, Model. The communication between the layers is all done using EventBus Design pattern. I'm using a custom bus implemented using RxJava.
 
 
+Libraries and tools included:
+- Support libraries
+- RecyclerViews and CardViews
+- [RxJava](https://github.com/ReactiveX/RxJava)
+- [Retrofit 2](http://square.github.io/retrofit/)
+- [Retrolambda](https://github.com/orfjackal/retrolambda)
+- [Dagger 2](http://google.github.io/dagger/)
+- [DbFlow](https://github.com/Raizlabs/DBFlow)
+- [Butterknife](https://github.com/JakeWharton/butterknife)
+- [Timber](https://github.com/JakeWharton/timber)
+- [Glide](https://github.com/bumptech/glide)
+- Functional tests with [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html)
+- [Robolectric](http://robolectric.org/)
+- [Mockito](http://mockito.org/)
+
 
 ## Architecture
 
@@ -41,22 +56,6 @@ The boiler plate is based on MVP architecture (Model, View, Presenter) which is 
 - [Android SDK](http://developer.android.com/sdk/index.html).
 - Android N [(API 24) ](http://developer.android.com/tools/revisions/platforms.html).
 - Latest Android SDK Tools and build tools.
-
-
-Libraries and tools included:
-- Support libraries
-- RecyclerViews and CardViews
-- [RxJava](https://github.com/ReactiveX/RxJava)
-- [Retrofit 2](http://square.github.io/retrofit/)
-- [Retrolambda](https://github.com/orfjackal/retrolambda)
-- [Dagger 2](http://google.github.io/dagger/)
-- [DbFlow](https://github.com/Raizlabs/DBFlow)
-- [Butterknife](https://github.com/JakeWharton/butterknife)
-- [Timber](https://github.com/JakeWharton/timber)
-- [Glide](https://github.com/bumptech/glide)
-- Functional tests with [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html)
-- [Robolectric](http://robolectric.org/)
-- [Mockito](http://mockito.org/)
 
 
 
@@ -80,8 +79,7 @@ To run **instrumentation** tests on connected devices:
 
 ### Code Quality and Style Tools
 
-#### [CheckStyle](http://checkstyle.sourceforge.net/):
-We are using checkstyle to insure that the code follows our Android coding styles and standards.
+#### [CheckStyle](http://checkstyle.sourceforge.net/): We are using checkstyle to insure that the code follows our Android coding styles and standards.
 
 The rules we enforce are as the following:
 - Imports rules: which prevents redundant and star imports
@@ -90,6 +88,7 @@ The rules we enforce are as the following:
 - General code styles rules: deals with things like: preventing empty catch, modifiers order (public, static, final, volatile ..)
 
 To run the checkstyle, first you should install check style on your device or CI server using the following command
+
 `brew install checkstyle`
 
 and then run the command:

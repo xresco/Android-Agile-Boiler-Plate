@@ -78,7 +78,7 @@ To run **instrumentation** tests on connected devices:
 
 ```
 ./gradlew connectedAndroidTest
-``` 
+```
 
 
 ## Authors

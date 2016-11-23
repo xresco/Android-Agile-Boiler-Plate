@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.CustomViewHolder> {
 
-    private List<String> items;
+    private List<String> mItems;
 
     @Inject
     public HistoryAdapter() {
@@ -31,24 +31,24 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.CustomVi
 
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
-        if (items == null || items.size() == 0) {
+        if (mItems == null || mItems.size() == 0) {
             return;
         }
-        holder.setItem(items.get(position));
+        holder.setItem(mItems.get(position));
     }
 
     @Override
     public int getItemCount() {
-        if (items == null) {
+        if (mItems == null) {
             return 0;
         }
 
-        return items.size();
+        return mItems.size();
     }
 
     public void updateList(List<String> items) {
 
-        this.items = items;
+        this.mItems = items;
         notifyDataSetChanged();
     }
 

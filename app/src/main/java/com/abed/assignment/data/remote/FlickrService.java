@@ -17,10 +17,10 @@ public interface FlickrService {
 
     @GET("/services/rest")
     Observable<SearchResult> search(@Query("method") String method,
-                                    @Query("api_key") String api_key,
+                                    @Query("api_key") String apiKey,
                                     @Query("format") String format,
                                     @Query("nojsoncallback") int nojsoncallback,
-                                    @Query("per_page") int per_page,
+                                    @Query("per_page") int perPage,
                                     @Query("page") int page,
                                     @Query("text") String searchKey);
 

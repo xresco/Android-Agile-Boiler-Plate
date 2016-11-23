@@ -1,4 +1,4 @@
-package com.abed.assignment.ui.Main;
+package com.abed.assignment.ui.main;
 
 import com.abed.assignment.data.model.Photo;
 import com.abed.assignment.ui.base.MvpView;

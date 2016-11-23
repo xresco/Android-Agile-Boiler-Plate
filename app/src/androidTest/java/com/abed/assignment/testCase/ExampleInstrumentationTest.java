@@ -1,10 +1,5 @@
-package com.abed.assignment.testCase;
+package com.abed.assignment.testcase;
 
-import static android.support.test.espresso.Espresso.*;
-import static android.support.test.espresso.action.ViewActions.*;
-import static android.support.test.espresso.matcher.ViewMatchers.*;
-
-import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.filters.MediumTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -12,16 +7,23 @@ import android.view.KeyEvent;
 import android.widget.EditText;
 
 import com.abed.assignment.R;
+import com.abed.assignment.assertion.RecyclerViewItemCountAssertion;
 import com.abed.assignment.injection.component.DaggerTestApplicationComponent;
 import com.abed.assignment.injection.component.TestApplicationComponent;
 import com.abed.assignment.injection.module.TestApplicationModule;
-import com.abed.assignment.assertion.RecyclerViewItemCountAssertion;
 import com.abed.assignment.rule.DaggerActivityTestRule;
-import com.abed.assignment.ui.Main.MainActivity;
+import com.abed.assignment.ui.main.MainActivity;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.pressKey;
+import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 /**
  * Instrumentation test, which will execute on an Android device.
@@ -34,7 +36,6 @@ public class ExampleInstrumentationTest {
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule =
             new DaggerActivityTestRule<>(MainActivity.class, (application, activity) -> {
-
                 TestApplicationComponent mApplicationComponent = DaggerTestApplicationComponent.builder()
                         .testApplicationModule(new TestApplicationModule(application))
                         .build();

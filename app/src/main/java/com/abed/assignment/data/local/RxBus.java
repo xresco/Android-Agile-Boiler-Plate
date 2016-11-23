@@ -1,7 +1,5 @@
 package com.abed.assignment.data.local;
 
-import android.util.Log;
-
 import rx.Subscription;
 import rx.functions.Action1;
 import rx.subjects.PublishSubject;
@@ -15,8 +13,9 @@ public class RxBus {
         return mBusSubject
                 .filter(event -> event.getClass().equals(eventClass))
                 .map(obj -> (T) obj)
-                .subscribe(onNext, throwable -> {throwable.printStackTrace();
-                    Log.d("Error", "register: "+throwable.getMessage());});
+                .subscribe(onNext, throwable -> {
+                    throwable.printStackTrace();
+                });
     }
 
     public <T> Subscription register(final Class<T> eventClass, Action1<T> onNext, Action1<Throwable> onError) {

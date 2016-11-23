@@ -13,10 +13,10 @@ import org.junit.Assert;
  */
 
 public class RecyclerViewItemCountAssertion implements ViewAssertion {
-    private final int expectedCount;
+    private final int mExpectedCount;
 
     public RecyclerViewItemCountAssertion(int expectedCount) {
-        this.expectedCount = expectedCount;
+        this.mExpectedCount = expectedCount;
     }
 
     @Override
@@ -27,6 +27,6 @@ public class RecyclerViewItemCountAssertion implements ViewAssertion {
 
         RecyclerView recyclerView = (RecyclerView) view;
         RecyclerView.Adapter adapter = recyclerView.getAdapter();
-        Assert.assertThat(adapter.getItemCount(), Matchers.is(expectedCount));
+        Assert.assertThat(adapter.getItemCount(), Matchers.is(mExpectedCount));
     }
 }

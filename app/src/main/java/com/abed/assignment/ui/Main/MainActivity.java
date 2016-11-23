@@ -1,4 +1,4 @@
-package com.abed.assignment.ui.Main;
+package com.abed.assignment.ui.main;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -57,7 +57,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
         recyclerImgs.setLayoutManager(layoutManager);
         recyclerImgs.setAdapter(mainAdapter);
-        mainAdapter.setClicksListener((view, position) -> Toast.makeText(view.getContext(), "Item clicked: " + position, Toast.LENGTH_SHORT).show());
+        mainAdapter.setmClicksListener((view, position) -> Toast.makeText(view.getContext(), "Item clicked: " + position, Toast.LENGTH_SHORT).show());
         recyclerImgs.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {

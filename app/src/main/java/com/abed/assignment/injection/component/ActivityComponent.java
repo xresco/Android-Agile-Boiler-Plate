@@ -1,6 +1,6 @@
 package com.abed.assignment.injection.component;
 
-import com.abed.assignment.ui.Main.MainActivity;
+import com.abed.assignment.ui.main.MainActivity;
 import com.abed.assignment.injection.PerActivity;
 import com.abed.assignment.injection.module.ActivityModule;
 import com.abed.assignment.ui.history.HistoryActivity;

@@ -1,4 +1,4 @@
-package com.abed.assignment.testRunner;
+package com.abed.assignment.testrunner;
 
 import android.app.Application;
 

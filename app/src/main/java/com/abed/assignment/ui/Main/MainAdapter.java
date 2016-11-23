@@ -1,4 +1,4 @@
-package com.abed.assignment.ui.Main;
+package com.abed.assignment.ui.main;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -20,47 +20,47 @@ import butterknife.ButterKnife;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHolder> {
 
-    private List<Photo> items;
-    private ViewHolderClicks clicksListener;
+    private List<Photo> mItems;
+    private ViewHolderClicks mClicksListener;
 
     @Inject
     public MainAdapter() {
     }
 
-    public void setClicksListener(ViewHolderClicks clicksListener) {
-        this.clicksListener = clicksListener;
+    public void setmClicksListener(ViewHolderClicks mClicksListener) {
+        this.mClicksListener = mClicksListener;
     }
 
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main_activity, parent, false);
-        return new CustomViewHolder(view, clicksListener);
+        return new CustomViewHolder(view, mClicksListener);
     }
 
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
-        if (items == null || items.size() == 0) {
+        if (mItems == null || mItems.size() == 0) {
             return;
         }
-        holder.setItem(items.get(position));
+        holder.setItem(mItems.get(position));
     }
 
     @Override
     public int getItemCount() {
-        if (items == null) {
+        if (mItems == null) {
             return 0;
         }
 
-        return items.size();
+        return mItems.size();
     }
 
     public void updateList(List<Photo> items) {
-        this.items = items;
+        this.mItems = items;
         notifyDataSetChanged();
     }
 
     public void addToList(List<Photo> items) {
-        this.items.addAll(items);
+        this.mItems.addAll(items);
         notifyDataSetChanged();
     }
 

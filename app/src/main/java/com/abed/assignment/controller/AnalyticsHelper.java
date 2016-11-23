@@ -20,7 +20,7 @@ import timber.log.Timber;
  */
 public class AnalyticsHelper {
 
-    private Tracker appTracker;
+    private Tracker mAppTracker;
 
     public AnalyticsHelper() {
     }
@@ -42,23 +42,23 @@ public class AnalyticsHelper {
 
     public void trackScreen(Context context, String screenName) {
         Timber.d("trackScreen() called with: " + "context = [" + context + "], screenName = [" + screenName + "]");
-        if (appTracker == null) {
-            appTracker = getTracker(context);
+        if (mAppTracker == null) {
+            mAppTracker = getTracker(context);
         }
 
-        appTracker.enableAdvertisingIdCollection(true);
-        appTracker.setScreenName(screenName);
-        appTracker.send(new HitBuilders.ScreenViewBuilder().build());
+        mAppTracker.enableAdvertisingIdCollection(true);
+        mAppTracker.setScreenName(screenName);
+        mAppTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
 
     public void trackEvent(Context context, String category, String action, String label) {
         Timber.d("trackEvent() called with: " + "context = [" + context + "], category = [" + category + "], action = [" + action + "], label = [" + label + "]");
-        if (appTracker == null) {
-            appTracker = getTracker(context);
+        if (mAppTracker == null) {
+            mAppTracker = getTracker(context);
         }
 
-        appTracker.send(new HitBuilders.EventBuilder()
+        mAppTracker.send(new HitBuilders.EventBuilder()
                 .setCategory((category))
                 .setAction((action))
                 .setLabel((label))
@@ -67,11 +67,11 @@ public class AnalyticsHelper {
 
     public void trackEventWithValue(Context context, String category, String action, String label, long value) {
         Timber.d("trackEventWithValue() called with: " + "context = [" + context + "], category = [" + category + "], action = [" + action + "], label = [" + label + "], value = [" + value + "]");
-        if (appTracker == null) {
-            appTracker = getTracker(context);
+        if (mAppTracker == null) {
+            mAppTracker = getTracker(context);
         }
 
-        appTracker.send(new HitBuilders.EventBuilder()
+        mAppTracker.send(new HitBuilders.EventBuilder()
                 .setCategory(category)
                 .setAction(action)
                 .setLabel(label)

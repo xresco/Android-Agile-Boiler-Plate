@@ -1,12 +1,12 @@
-package com.abed.assignment.testCase;
+package com.abed.assignment.testcase;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 
 import com.abed.assignment.BuildConfig;
 import com.abed.assignment.R;
-import com.abed.assignment.testRunner.MockApplicationTestRunner;
-import com.abed.assignment.ui.Main.MainActivity;
+import com.abed.assignment.testrunner.MockApplicationTestRunner;
+import com.abed.assignment.ui.main.MainActivity;
 import com.abed.assignment.ui.history.HistoryActivity;
 
 import org.assertj.core.api.Assertions;

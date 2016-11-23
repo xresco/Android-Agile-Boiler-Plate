@@ -1,7 +1,7 @@
-package com.abed.assignment.ui.Main;
+package com.abed.assignment.ui.main;
 
 import com.abed.assignment.controller.DataManager;
-import com.abed.assignment.data.local.eventBus.BusEvenSearchItemsLoaded;
+import com.abed.assignment.data.local.eventbus.BusEvenSearchItemsLoaded;
 import com.abed.assignment.ui.base.BasePresenter;
 
 import javax.inject.Inject;
@@ -9,14 +9,13 @@ import javax.inject.Inject;
 import rx.Subscription;
 
 public class MainPresenter extends BasePresenter<MainMvpView> {
-    private String TAG = getClass().getName();
 
     @Inject
-    DataManager dataManager;
+    DataManager mDataManager;
 
-    private Subscription searchSubscription;
-    private String searchKey;
-    private int page;
+    private Subscription mSearchSubscription;
+    private String mSearchKey;
+    private int mPage;
 
     @Inject
     public MainPresenter() {
@@ -25,13 +24,13 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
     @Override
     public void attachView(MainMvpView mvpView) {
         super.attachView(mvpView);
-        searchSubscription = dataManager.getEventBusHelper().getBus()
+        mSearchSubscription = mDataManager.getEventBusHelper().getBus()
                 .register(BusEvenSearchItemsLoaded.class,
                         event -> {
-                            if (event.getPageNum() == 1)
-                                getMvpView().showItems(event.getPhotosPage().photos);
+                            if (event.getmPageNum() == 1)
+                                getMvpView().showItems(event.getmPhotosPage().photos);
                             else
-                                getMvpView().addToItems(event.getPhotosPage().photos);
+                                getMvpView().addToItems(event.getmPhotosPage().photos);
                         }
 
                 );
@@ -40,18 +39,18 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
     @Override
     public void detachView() {
         super.detachView();
-        if (searchSubscription != null && !searchSubscription.isUnsubscribed())
-            searchSubscription.unsubscribe();
+        if (mSearchSubscription != null && !mSearchSubscription.isUnsubscribed())
+            mSearchSubscription.unsubscribe();
     }
 
     public void search(String searchKey) {
-        this.searchKey = searchKey;
-        this.page = 1;
-        dataManager.getApiHelper().searchInFlickr(searchKey, 1);
-        dataManager.getDatabaseHelper().addSearchKeyToHistory(searchKey);
+        this.mSearchKey = searchKey;
+        this.mPage = 1;
+        mDataManager.getApiHelper().searchInFlickr(searchKey, 1);
+        mDataManager.getDatabaseHelper().addSearchKeyToHistory(searchKey);
     }
 
     public void loadNextPage() {
-        dataManager.getApiHelper().searchInFlickr(searchKey, page++);
+        mDataManager.getApiHelper().searchInFlickr(mSearchKey, mPage++);
     }
 }

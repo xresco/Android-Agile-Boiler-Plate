@@ -1,4 +1,4 @@
-package com.abed.assignment.data.local.eventBus;
+package com.abed.assignment.data.local.eventbus;
 
 import com.abed.assignment.data.model.PhotosPage;
 
@@ -6,19 +6,19 @@ import com.abed.assignment.data.model.PhotosPage;
 
 public class BusEvenSearchItemsLoaded {
 
-    private PhotosPage photosPage;
-    private int pageNum;
+    private PhotosPage mPhotosPage;
+    private int mPageNum;
 
     public BusEvenSearchItemsLoaded(PhotosPage photosPage, int pageNum) {
-        this.photosPage = photosPage;
-        this.pageNum = pageNum;
+        this.mPhotosPage = photosPage;
+        this.mPageNum = pageNum;
     }
 
-    public PhotosPage getPhotosPage() {
-        return photosPage;
+    public PhotosPage getmPhotosPage() {
+        return mPhotosPage;
     }
 
-    public int getPageNum() {
-        return pageNum;
+    public int getmPageNum() {
+        return mPageNum;
     }
 }

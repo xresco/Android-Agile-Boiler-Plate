@@ -1,7 +1,7 @@
 package com.abed.assignment.controller;
 
 import com.abed.assignment.BuildConfig;
-import com.abed.assignment.data.local.eventBus.BusEvenSearchItemsLoaded;
+import com.abed.assignment.data.local.eventbus.BusEvenSearchItemsLoaded;
 import com.abed.assignment.data.model.SearchResult;
 import com.abed.assignment.data.remote.FlickrService;
 

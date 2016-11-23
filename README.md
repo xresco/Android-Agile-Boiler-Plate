@@ -89,7 +89,9 @@ The rules we enforce are as the following:
 
 To run the checkstyle, first you should install check style on your device or CI server using the following command
 
-`brew install checkstyle`
+```
+brew install checkstyle
+```
 
 and then run the command:
 ```

@@ -79,13 +79,13 @@ To run **instrumentation** tests on connected devices:
 
 ### Code Quality and Style Tools
 
-#### [CheckStyle](http://checkstyle.sourceforge.net/): We are using checkstyle to insure that the code follows our Android coding styles and standards.
+[CheckStyle](http://checkstyle.sourceforge.net/): We are using checkstyle to insure that the code follows our Android coding styles and standards.
 
 The rules we enforce are as the following:
-- Imports rules: which prevents redundant and star imports
-- Naming: sets the rules for naming packages, classes, attributes, parameter, local variables, and types.
-- White Space rules: sets specific rules for white spaces. Things like: nothing can follow a semi-column ';', defining the rules for the white space allowed before the left curly brace '{' and after the right curcly brace '}', 1 white space after a comma ',' ....
-- General code styles rules: deals with things like: preventing empty catch, modifiers order (public, static, final, volatile ..)
+- **Imports rules:** which prevents redundant and star imports
+- **Naming:** sets the rules for naming packages, classes, attributes, parameter, local variables, and types.
+- **White Space rules:** sets specific rules for white spaces. Things like: nothing can follow a semi-column ';', defining the rules for the white space allowed before the left curly brace '{' and after the right curcly brace '}', 1 white space after a comma ',' ....
+- **General code styles rules:** deals with things like: preventing empty catch, modifiers order (public, static, final, volatile ..)
 
 To run the checkstyle, first you should install check style on your device or CI server using the following command
 

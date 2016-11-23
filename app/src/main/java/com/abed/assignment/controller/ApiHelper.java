@@ -7,6 +7,7 @@ import com.abed.assignment.data.remote.FlickrService;
 
 import rx.Subscriber;
 import rx.schedulers.Schedulers;
+import timber.log.Timber;
 
 
 public class ApiHelper {
@@ -30,7 +31,7 @@ public class ApiHelper {
 
                     @Override
                     public void onError(Throwable e) {
-                        e.printStackTrace();
+                        Timber.e(e);
                         //According to the API documentation and error code returned a retry might be needed.
                     }
 

@@ -10,6 +10,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import timber.log.Timber;
+
 
 public class LocalFileHelper {
 
@@ -28,7 +30,7 @@ public class LocalFileHelper {
             while ((temp = br.readLine()) != null)
                 sb.append(temp);
         } catch (IOException e) {
-            e.printStackTrace();
+            Timber.e(e);
         } finally {
             try {
                 br.close(); // stop reading

@@ -20,10 +20,6 @@
         <!-- This rule wasn't working properly and given errors in every var call info -->
         <exclude name="GuardLogStatementJavaUtil" />
     </rule>
-    <rule ref="rulesets/java/braces.xml">
-        <!-- We allow single line if's without braces -->
-        <exclude name="IfStmtsMustUseBraces" />
-    </rule>
     <rule ref="rulesets/java/strings.xml" >
         <!-- Exclude because causes problems with SQL Strings that usually require duplication -->
         <exclude name="AvoidDuplicateLiterals"/>

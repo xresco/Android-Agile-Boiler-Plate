@@ -22,7 +22,7 @@ import org.robolectric.annotation.Config;
 public class ExampleUnitTest {
 
     @Test
-    public void clickinfFab_shouldStartHistoryActivity() {
+    public void clickinfFabShouldStartHistoryActivity() {
         MainActivity activity = Robolectric.setupActivity(MainActivity.class);
         activity.findViewById(R.id.fab).performClick();
         Assertions.assertThat(Shadows.shadowOf(activity).getNextStartedActivity().getComponent().getClassName()).isEqualTo(HistoryActivity.class.getName());

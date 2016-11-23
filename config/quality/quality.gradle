@@ -16,7 +16,6 @@ apply plugin: 'pmd'
 
 dependencies {
     checkstyle 'com.puppycrawl.tools:checkstyle:7.2'
-//    toolVersion = "7.2"
 }
 
 def qualityConfigDir = "$project.rootDir/config/quality";
@@ -72,12 +71,12 @@ task findbugs(type: FindBugs,
 task pmd(type: Pmd, group: 'Verification', description: 'Inspect sourcecode for bugs') {
     ruleSetFiles = files("$qualityConfigDir/pmd/pmd-ruleset.xml")
     ignoreFailures = false
+    consoleOutput = true
     ruleSets = []
 
     source 'src'
     include '**/*.java'
     exclude '**/gen/**'
-
     reports {
         xml.enabled = true
         html.enabled = true

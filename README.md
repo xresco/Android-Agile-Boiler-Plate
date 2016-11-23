@@ -98,6 +98,18 @@ and then run the command:
 ./gradlew checkstyle
 ```
 
+
+[PMD](https://pmd.github.io/): Which is a source code analyzer that finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth. See this project's PMD ruleset.
+
+Follow this [link](https://pmd.github.io/pmd-5.5.2/pmd-java/rules/index.html) to check all the rules that PMD enforces.
+
+PMD can be executed using the following command:
+
+```
+./gradlew pmd
+```
+
+
 ## Authors
 
 * **Abed Almoradi** - *Senior Android Developer at Avast* - [Linkedin](https://www.linkedin.com/in/abdalmunem)

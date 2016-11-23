@@ -79,7 +79,7 @@ To run **instrumentation** tests on connected devices:
 
 ### Code Quality and Style Tools
 
-[CheckStyle](http://checkstyle.sourceforge.net/): We are using checkstyle to insure that the code follows our Android coding styles and standards.
+1- [CheckStyle:](http://checkstyle.sourceforge.net/) We are using checkstyle to insure that the code follows our Android coding styles and standards.
 
 The rules we enforce are as the following:
 - **Imports rules:** which prevents redundant and star imports
@@ -99,7 +99,7 @@ and then run the command:
 ```
 
 
-[PMD](https://pmd.github.io/): Which is a source code analyzer that finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth. See this project's PMD ruleset.
+2- [PMD:](https://pmd.github.io/) Which is a source code analyzer that finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth. See this project's PMD ruleset.
 
 Follow this [link](https://pmd.github.io/pmd-5.5.2/pmd-java/rules/index.html) to check all the rules that PMD enforces.
 

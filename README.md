@@ -79,7 +79,7 @@ To run **instrumentation** tests on connected devices:
 
 ### Code Quality and Style Tools
 
-[CheckStyle](http://checkstyle.sourceforge.net/): We are using checkstyle to insure that the code follows our Android coding styles and standards.
+- [CheckStyle](http://checkstyle.sourceforge.net/): We are using checkstyle to insure that the code follows our Android coding styles and standards.
 
 The rules we enforce are as the following:
 - **Imports rules:** which prevents redundant and star imports

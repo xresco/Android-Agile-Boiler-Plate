@@ -16,6 +16,10 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    lintOptions { 
+        abortOnError false
+    }
+
     signingConfigs {
         // You must set up an environment var before release signing
         // Run: export APP_KEY={password}

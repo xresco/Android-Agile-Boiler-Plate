@@ -4,8 +4,6 @@ package com.abed.assignment.controller;
  * Created by abed on 11/15/16.
  */
 
-import android.util.Log;
-
 import timber.log.Timber;
 
 /**

@@ -4,7 +4,7 @@ import com.abed.assignment.injection.component.DaggerTestApplicationComponent;
 import com.abed.assignment.injection.component.TestApplicationComponent;
 import com.abed.assignment.injection.module.TestApplicationModule;
 
-public class MockApplication extends Application {
+public class MockBaseApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();

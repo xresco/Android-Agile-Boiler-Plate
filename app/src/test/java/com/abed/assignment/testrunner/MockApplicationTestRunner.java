@@ -2,7 +2,7 @@ package com.abed.assignment.testrunner;
 
 import android.app.Application;
 
-import com.abed.assignment.MockApplication;
+import com.abed.assignment.MockBaseApplication;
 
 import org.junit.runners.model.InitializationError;
 import org.robolectric.DefaultTestLifecycle;
@@ -32,7 +32,7 @@ public class MockApplicationTestRunner extends RobolectricTestRunner {
     public static class MyTestLifecycle extends DefaultTestLifecycle {
         @Override
         public Application createApplication(Method method, AndroidManifest appManifest, Config config) {
-            return new MockApplication();
+            return new MockBaseApplication();
         }
     }
 

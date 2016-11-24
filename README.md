@@ -110,6 +110,24 @@ PMD can be executed using the following command:
 ```
 
 
+3- [Findbugs:](http://findbugs.sourceforge.net/) This tool uses static analysis to look for bugs in Java code. Unlike PMD & Checkstyle, it uses compiled Java bytecode instead of source code.
+
+Follow this [link](http://findbugs.sourceforge.net/manual/running.html#d0e465) if you want a quick intro about how to configure and start Findbugs.
+
+Findbugs can be executed using the following command:
+
+```
+./gradlew findbugs
+```
+
+
+To run the all the previous checks and the unit tests simple run the command
+
+```
+./gradlew check
+```
+
+
 ## Authors
 
 * **Abed Almoradi** - *Senior Android Developer at Avast* - [Linkedin](https://www.linkedin.com/in/abdalmunem)

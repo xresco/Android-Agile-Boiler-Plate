@@ -5,6 +5,7 @@ import rx.functions.Action1;
 import rx.subjects.PublishSubject;
 import rx.subjects.SerializedSubject;
 import rx.subjects.Subject;
+import timber.log.Timber;
 
 public class RxBus {
     private final Subject<Object, Object> mBusSubject = new SerializedSubject<>(PublishSubject.create());
@@ -14,7 +15,7 @@ public class RxBus {
                 .filter(event -> event.getClass().equals(eventClass))
                 .map(obj -> (T) obj)
                 .subscribe(onNext, throwable -> {
-                    throwable.printStackTrace();
+                    Timber.e(throwable);
                 });
     }
 

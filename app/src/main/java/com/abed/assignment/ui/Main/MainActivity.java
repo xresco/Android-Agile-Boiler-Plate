@@ -25,7 +25,6 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import timber.log.Timber;
 
 public class MainActivity extends BaseActivity implements MainMvpView {
 
@@ -49,7 +48,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Timber.d("oncreate ");
         getActivityComponent().inject(this);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);

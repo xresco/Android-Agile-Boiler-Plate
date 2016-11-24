@@ -129,6 +129,7 @@ To run the all the previous checks and the unit tests simple run the command
 ```
 
 
+
 ##Debuging
 
 Beside using the console and the debugging tools that comes with Android studio, we are using [Stetho](http://facebook.github.io/stetho/).
@@ -142,6 +143,7 @@ Here are some of the features it gives:
 - **Database Inspection:** SQLite databases can be visualized and interactively explored with full read/write capabilities.
 - **Network Inspection:** This is possible with the full spectrum of Chrome Developer Tools features, including image preview, JSON response helpers, and even exporting traces to the HAR format.
 
+To inspect the app using stetho, simple run the app, make sure the phone is connected to the PC, open the link `chrome://inspect` in chrome and choose your device. 
 
 ## Authors
 

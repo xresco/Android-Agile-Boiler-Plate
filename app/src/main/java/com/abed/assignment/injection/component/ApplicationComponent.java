@@ -8,6 +8,7 @@ import com.abed.assignment.controller.DataManager;
 import com.abed.assignment.injection.ApplicationContext;
 import com.abed.assignment.injection.module.ApplicationModule;
 import com.abed.assignment.injection.module.BaseModule;
+import com.abed.assignment.injection.module.ReleaseModule;
 
 import javax.inject.Singleton;
 
@@ -15,7 +16,7 @@ import dagger.Component;
 import timber.log.Timber;
 
 @Singleton
-@Component(modules = {ApplicationModule.class, BaseModule.class})
+@Component(modules = {ApplicationModule.class, BaseModule.class, ReleaseModule.class})
 public interface ApplicationComponent {
 
 

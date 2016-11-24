@@ -10,7 +10,7 @@ import com.abed.assignment.R;
 import com.abed.assignment.assertion.RecyclerViewItemCountAssertion;
 import com.abed.assignment.injection.component.DaggerTestApplicationComponent;
 import com.abed.assignment.injection.component.TestApplicationComponent;
-import com.abed.assignment.injection.module.TestApplicationModule;
+import com.abed.assignment.injection.module.ApplicationModule;
 import com.abed.assignment.rule.DaggerActivityTestRule;
 import com.abed.assignment.ui.main.MainActivity;
 
@@ -37,7 +37,7 @@ public class ExampleInstrumentationTest {
     public ActivityTestRule<MainActivity> mActivityRule =
             new DaggerActivityTestRule<>(MainActivity.class, (application, activity) -> {
                 TestApplicationComponent mApplicationComponent = DaggerTestApplicationComponent.builder()
-                        .testApplicationModule(new TestApplicationModule(application))
+                        .applicationModule(new ApplicationModule(application))
                         .build();
                 application.setComponent(mApplicationComponent);
             });

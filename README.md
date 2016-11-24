@@ -113,6 +113,7 @@ PMD can be executed using the following command:
 3- [Findbugs:](http://findbugs.sourceforge.net/) This tool uses static analysis to look for bugs in Java code. Unlike PMD & Checkstyle, it uses compiled Java bytecode instead of source code.
 
 Follow this [link](http://findbugs.sourceforge.net/manual/running.html#d0e465) if you want a quick intro about how to configure and start Findbugs.
+To read more about Findbugs, you can check the following [article](https://androidbycode.wordpress.com/2015/02/13/static-code-analysis-automation-using-findbugs-android-studio/)
 
 Findbugs can be executed using the following command:
 
@@ -126,6 +127,20 @@ To run the all the previous checks and the unit tests simple run the command
 ```
 ./gradlew check
 ```
+
+
+##Debuging
+
+Beside using the console and the debugging tools that comes with Android studio, we are using [Stetho](http://facebook.github.io/stetho/).
+The boilerplate is pre-configured to use Stetho in the debug build variant and to avoid it in the release build variant (thanks to dependency injection).
+
+Stetho is a sophisticated debug bridge for Android applications built by facebook which enables developers to have access to the Chrome Developer Tools feature natively part of the Chrome desktop browser.
+
+Here are some of the features it gives:
+
+- **View hierarchy support:** for ICS (API 15) and up! Lots of goodies such as instances virtually placed in the hierarchy, view highlighting, and the ability to tap on a view to jump to its position in the hierarchy.
+- **Database Inspection:** SQLite databases can be visualized and interactively explored with full read/write capabilities.
+- **Network Inspection:** This is possible with the full spectrum of Chrome Developer Tools features, including image preview, JSON response helpers, and even exporting traces to the HAR format.
 
 
 ## Authors

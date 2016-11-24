@@ -2,6 +2,7 @@ package com.abed.assignment;
 
 import android.app.Application;
 import android.content.Context;
+
 import com.abed.assignment.injection.component.ApplicationComponent;
 import com.abed.assignment.injection.component.DaggerApplicationComponent;
 import com.abed.assignment.injection.module.ApplicationModule;

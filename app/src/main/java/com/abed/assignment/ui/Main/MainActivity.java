@@ -2,6 +2,7 @@ package com.abed.assignment.ui.main;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.GridLayoutManager;
@@ -13,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.abed.assignment.R;
 import com.abed.assignment.data.model.Photo;
 import com.abed.assignment.ui.base.BaseActivity;
@@ -73,8 +73,15 @@ public class MainActivity extends BaseActivity implements MainMvpView {
             }
         });
         fabButton.setOnClickListener(v -> HistoryActivity.startActivity(v.getContext()));
+
     }
 
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+    }
 
     @Override
     protected void onDestroy() {

@@ -106,7 +106,7 @@ dependencies {
     final BUTTERKNIFE_VERSION = '8.1.0'
     final SUPPORT_LIBRARY_VERSION = '25.0.1'
     final RETROFIT_VERSION = '2.1.0'
-    final PLAY_SERVICES_VERSION = '9.8.0'
+    final PLAY_SERVICES_VERSION = '10.0.0'
     final DBFLOW_VERSION = '3.1.1'
     final STETHO_VERSION = '1.4.1'
 
@@ -123,6 +123,9 @@ dependencies {
 
     debugCompile "com.facebook.stetho:stetho:$STETHO_VERSION"
     debugCompile "com.facebook.stetho:stetho-okhttp3:$STETHO_VERSION"
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+//    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+//    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
     compile "com.github.Raizlabs.DBFlow:dbflow-core:$DBFLOW_VERSION"
     compile "com.github.Raizlabs.DBFlow:dbflow:$DBFLOW_VERSION"

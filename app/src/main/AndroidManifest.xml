@@ -13,8 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.main.MainActivity"
-            android:configChanges="orientation|screenSize">
+            android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -22,8 +21,7 @@
         </activity>
 
         <activity
-            android:name="com.abed.assignment.ui.history.HistoryActivity"
-            android:configChanges="orientation|screenSize" />
+            android:name="com.abed.assignment.ui.history.HistoryActivity" />
 
     </application>
 

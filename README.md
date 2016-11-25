@@ -132,7 +132,7 @@ To run the all the previous checks and the unit tests simple run the command
 
 ##Debuging
 
-Beside using the console and the debugging tools that comes with Android studio, we are using [Stetho](http://facebook.github.io/stetho/).
+1- [Stetho](http://facebook.github.io/stetho/): Beside using the console and the debugging tools that comes with Android studio, we are using Stetho.
 The boilerplate is pre-configured to use Stetho in the debug build variant and to avoid it in the release build variant (thanks to dependency injection).
 
 Stetho is a sophisticated debug bridge for Android applications built by facebook which enables developers to have access to the Chrome Developer Tools feature natively part of the Chrome desktop browser.
@@ -143,7 +143,12 @@ Here are some of the features it gives:
 - **Database Inspection:** SQLite databases can be visualized and interactively explored with full read/write capabilities.
 - **Network Inspection:** This is possible with the full spectrum of Chrome Developer Tools features, including image preview, JSON response helpers, and even exporting traces to the HAR format.
 
-To inspect the app using stetho, simple run the app, make sure the phone is connected to the PC, open the link `chrome://inspect` in chrome and choose your device. 
+To inspect the app using Stetho, simple run the app, make sure the phone is connected to the PC, open the link `chrome://inspect` in chrome and choose your device.
+
+
+2- [Leak Canary](https://github.com/square/leakcanary): Which is A memory leak detection library for Android built by Sqaure. Leak canary runs only on debug and it  will automatically show a notification when an activity memory leak is detected in your debug build.
+For more info check this [link](https://github.com/square/leakcanary/wiki/FAQ)
+
 
 ## Authors
 

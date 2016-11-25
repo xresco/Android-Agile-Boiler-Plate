@@ -1,7 +1,7 @@
 package com.abed.assignment.injection.module;
 
-import android.app.Activity;
 import android.content.Context;
+import android.support.v4.app.Fragment;
 
 import com.abed.assignment.injection.ActivityContext;
 
@@ -9,23 +9,23 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class ActivityModule {
+public class FragmentModule {
 
-    private Activity mActivity;
+    private Fragment mFragment;
 
-    public ActivityModule(Activity activity) {
-        mActivity = activity;
+    public FragmentModule(Fragment fragment) {
+        mFragment = fragment;
     }
 
     @Provides
-    Activity provideActivity() {
-        return mActivity;
+    Fragment provideFragment() {
+        return mFragment;
     }
 
     @Provides
     @ActivityContext
     Context providesContext() {
-        return mActivity;
+        return mFragment.getContext();
     }
 
 }

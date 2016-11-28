@@ -1,15 +1,15 @@
 # Agile Boiler Plate
 
-The main task at the innovation labs of Avast is to find new ideas to work on, prototype these ideas, and quickly implement them. And because this nature of our work we might end up building so many ideas in a very short time. And since quality is something we can’t sacrifice and since it usually requires additional time we decided to come up with a solid, lean, readable, upgradable, testable boilerplate for our Android apps. We named it Agile Boiler Plate.
+The main task at the innovation labs of Avast is to find new ideas to work on, prototype these ideas, and quickly implement them. And because this nature of our work we might end up building so many ideas in a very short time. And since quality is something we can’t sacrifice, and since it usually requires additional time we decided to come up with a solid, lean, readable, upgradable, testable boilerplate for our Android apps. We named it Agile Boiler Plate.
 
-This boilerplate covers the needs of most of the Android apps that you can think of. It's simple, well architected and easily adjustable to your specific requirements.
+This boilerplate covers the needs that most of the Android apps might require. It's simple, well architected and easily adjustable to your specific requirements.
 
-The project is fully based in Dependency Injection design pattern using Dagger2. Which adds a layer of separation and makes things even less coupled.
+The project is fully based on Dependency Injection design pattern using Dagger2, which adds a layer of separation and makes things even less coupled.
 
 The dependencies currently handled by the boiler plate are the following:
 - Database dependency: encapsulates all the database operations.
 - Shared preferences dependency: deals with shared preferences.
-- Local files dependency: which deals with saving on files.
+- Local files dependency: deals with all the operations related to local files.
 - Analytics dependency: covers all the operation of reporting events to your analytics backend (GA, Segment, FB, Flurry ..)
 - Logging dependency: encapsulates all the operations related to logging to your console
 - Api dependency: encapsulates all the API related operations
@@ -17,11 +17,11 @@ The dependencies currently handled by the boiler plate are the following:
 
 The power of dependency injection comes really handy especially for testing since you can easily switch your dependencies in the test environment to dummy dependencies.
 
-As an example, you can change your Api dependency on testing environment so it returns a specific response without doing the actual call to your server. Share pref dependency can be overridden to return specific values for certain keys instead of saving and retrieving actual values in your test device, and the same applies for local files and data dependencies. Both logging and analytics dependencies can be overridden to deliver the logs and reports to a server or file to be analyzed after running the tests instead of the console or the actual analytics server.
+As an example, you can change your Api dependency in testing environment so it returns a specific response without doing the actual call to your server. Share pref dependency can be overridden to return specific values for certain keys instead of saving and retrieving actual values in your test device, and the same applies for local files and data dependencies. Both logging and analytics dependencies can be overridden to deliver the logs and reports to a server or file to be analyzed after running the tests instead of the console or the actual analytics server.
 
-Moreover, dependency injection makes it really easy when you need to change certain dependencies let's say moving from google analytics to flurry, Or migrating from DbFlow database to SQLBrite.
+Moreover, dependency injection makes it really easy when you need to change certain dependencies. Let's say moving from google analytics to flurry, Or migrating from DbFlow database to SQLBrite.
 
-The boiler plates consist of 4 layers: View, Presenter, Controller, Model. The communication between the layers is all done using EventBus Design pattern. I'm using a custom bus implemented using RxJava.
+Agile boiler plate consist of 4 layers: View, Presenter, Controller, Model. The communication between the layers is all done using EventBus Design pattern. I'm using a custom bus implemented using RxJava.
 
 
 Libraries and tools included:
@@ -32,7 +32,7 @@ Libraries and tools included:
 - [Retrolambda](https://github.com/orfjackal/retrolambda)
 - [Dagger 2](http://google.github.io/dagger/)
 - [DbFlow](https://github.com/Raizlabs/DBFlow)
-- [Butterknife](https://github.com/JakeWharton/butterknife)
+- [Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html)
 - [Timber](https://github.com/JakeWharton/timber)
 - [Glide](https://github.com/bumptech/glide)
 - Functional tests with [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html)
@@ -42,7 +42,7 @@ Libraries and tools included:
 
 ## Architecture
 
-The boiler plate is based on MVP architecture (Model, View, Presenter) which is better than MVC when it comes to coupling. MVP makes your view code way cleaner than when using MVC, since the Views, Activities and the fragments will only have the code related to rendering the customizing the UI and no interactions with the controllers.
+The boiler plate is based on MVP architecture (Model, View, Presenter) which is better than MVC when it comes to coupling. MVP makes your view code way cleaner than when using MVC, since the views, activities and the fragments will only have the code related to rendering the customizing the UI and no interactions with the controllers.
 
 
 
@@ -79,15 +79,15 @@ To run **instrumentation** tests on connected devices:
 
 ### Code Quality and Style Tools
 
-1- [CheckStyle:](http://checkstyle.sourceforge.net/) We are using checkstyle to insure that the code follows our Android coding styles and standards.
+1- [CheckStyle:](http://checkstyle.sourceforge.net/) We are using Checkstyle to insure that the code follows our Android coding style and standards.
 
 The rules we enforce are as the following:
 - **Imports rules:** which prevents redundant and star imports
 - **Naming:** sets the rules for naming packages, classes, attributes, parameter, local variables, and types.
-- **White Space rules:** sets specific rules for white spaces. Things like: nothing can follow a semi-column ';', defining the rules for the white space allowed before the left curly brace '{' and after the right curcly brace '}', 1 white space after a comma ',' ....
+- **White Space rules:** sets specific rules for white spaces. Things like: nothing can follow a semi-column ';', defining the rules for the white space allowed before the left curly brace '{' and after the right curly brace '}', 1 white space after a comma ',' ....
 - **General code styles rules:** deals with things like: preventing empty catch, modifiers order (public, static, final, volatile ..)
 
-To run the checkstyle, first you should install check style on your device or CI server using the following command
+To run Checkstyle, first you should install the tool on your device or CI server using the following command
 
 ```
 brew install checkstyle

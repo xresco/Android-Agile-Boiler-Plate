@@ -1,19 +1,17 @@
 package com.abed.assignment.ui.history;
 
+import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.abed.assignment.R;
+import com.abed.assignment.databinding.ItemHistoryActivityBinding;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.CustomViewHolder> {
 
@@ -25,8 +23,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.CustomVi
 
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_history_activity, parent, false);
-        return new CustomViewHolder(view);
+        ItemHistoryActivityBinding viewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_history_activity, parent, false);
+        return new CustomViewHolder(viewDataBinding);
     }
 
     @Override
@@ -47,23 +45,22 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.CustomVi
     }
 
     public void updateList(List<String> items) {
-
         this.mItems = items;
         notifyDataSetChanged();
     }
 
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.txt_content)
-        TextView content;
+        ItemHistoryActivityBinding mBinding;
 
+        public CustomViewHolder(ItemHistoryActivityBinding itemHistoryActivityBinding) {
+            super(itemHistoryActivityBinding.getRoot());
+            this.mBinding = itemHistoryActivityBinding;
 
-        public CustomViewHolder(View view) {
-            super(view);
-            ButterKnife.bind(this, view);
         }
+
         public void setItem(final String item) {
-            content.setText(item);
+            mBinding.txtContent.setText(item);
         }
     }
 

@@ -6,8 +6,8 @@ import android.support.v7.widget.SearchView;
 import com.abed.assignment.BuildConfig;
 import com.abed.assignment.R;
 import com.abed.assignment.testrunner.MockApplicationTestRunner;
-import com.abed.assignment.ui.main.MainActivity;
 import com.abed.assignment.ui.history.HistoryActivity;
+import com.abed.assignment.ui.main.MainActivity;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -31,7 +31,7 @@ public class ExampleUnitTest {
     @Test
     public void checkSearch() {
         MainActivity activity = Robolectric.setupActivity(MainActivity.class);
-        RecyclerView imgRec = (RecyclerView) activity.findViewById(R.id.recylcer_imgs);
+        RecyclerView imgRec = (RecyclerView) activity.findViewById(R.id.recycler_imgs);
         SearchView searchView = (SearchView) activity.findViewById(R.id.action_search);
 
         Assertions.assertThat(imgRec.getAdapter().getItemCount()).isEqualTo(0);

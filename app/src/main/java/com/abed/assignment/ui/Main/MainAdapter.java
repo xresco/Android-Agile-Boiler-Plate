@@ -1,22 +1,21 @@
 package com.abed.assignment.ui.main;
 
+import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.abed.assignment.R;
 import com.abed.assignment.data.model.Photo;
+import com.abed.assignment.databinding.ItemMainActivityBinding;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHolder> {
 
@@ -33,8 +32,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
 
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main_activity, parent, false);
-        return new CustomViewHolder(view, mClicksListener);
+        ItemMainActivityBinding viewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_main_activity, parent, false);
+        return new CustomViewHolder(viewDataBinding, mClicksListener);
     }
 
     @Override
@@ -66,23 +65,23 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
 
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.img_content)
-        ImageView imageContent;
 
-        public CustomViewHolder(View view, final ViewHolderClicks clicksListener) {
-            super(view);
-            ButterKnife.bind(this, view);
-            view.setOnClickListener(v -> clicksListener.onItemClick(v, getAdapterPosition()));
+        ItemMainActivityBinding mBinding;
+
+        public CustomViewHolder(ItemMainActivityBinding viewDataBinding, final ViewHolderClicks clicksListener) {
+            super(viewDataBinding.getRoot());
+            this.mBinding = viewDataBinding;
+            viewDataBinding.getRoot().setOnClickListener(v -> clicksListener.onItemClick(v, getAdapterPosition()));
+
         }
-
 
         public void setItem(final Photo photo) {
             String url = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg";
             Log.d("log::", "setItem: " + photo.farm + " " + photo.server + " " + photo.id + " " + photo.secret);
-            Glide.with((imageContent).getContext().getApplicationContext())
+            Glide.with((mBinding.imgContent).getContext().getApplicationContext())
                     .load(url)
                     .thumbnail(0.1f)
-                    .into(imageContent);
+                    .into(mBinding.imgContent);
         }
     }
 

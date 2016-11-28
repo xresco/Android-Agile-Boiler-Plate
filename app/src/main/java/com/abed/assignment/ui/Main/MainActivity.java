@@ -3,8 +3,8 @@ package com.abed.assignment.ui.main;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -12,20 +12,17 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.abed.assignment.R;
 import com.abed.assignment.data.model.Photo;
+import com.abed.assignment.databinding.ActivityMainBinding;
 import com.abed.assignment.ui.base.BaseActivity;
 import com.abed.assignment.ui.history.HistoryActivity;
 
 import java.util.List;
 
 import javax.inject.Inject;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity implements MainMvpView {
 
@@ -35,29 +32,20 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     @Inject
     MainAdapter mainAdapter;
 
-    @BindView(R.id.recylcer_imgs)
-    RecyclerView recyclerImgs;
-
-    @BindView(R.id.progress_loading)
-    ProgressBar progressLoading;
-
-    @BindView(R.id.fab)
-    FloatingActionButton fabButton;
-
+    ActivityMainBinding binding;
     private boolean mIsLoading = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActivityComponent().inject(this);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mMainPresenter.attachView(this);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
-        recyclerImgs.setLayoutManager(layoutManager);
-        recyclerImgs.setAdapter(mainAdapter);
+        binding.recyclerImgs.setLayoutManager(layoutManager);
+        binding.recyclerImgs.setAdapter(mainAdapter);
         mainAdapter.setmClicksListener((view, position) -> Toast.makeText(view.getContext(), "Item clicked: " + position, Toast.LENGTH_SHORT).show());
-        recyclerImgs.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        binding.recyclerImgs.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 if (mIsLoading)
@@ -68,12 +56,12 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 if (pastVisibleItems + visibleItemCount >= totalItemCount) {
                     //End of list
                     mIsLoading = true;
-                    progressLoading.setVisibility(View.VISIBLE);
+                    binding.progressLoading.setVisibility(View.VISIBLE);
                     mMainPresenter.loadNextPage();
                 }
             }
         });
-        fabButton.setOnClickListener(v -> HistoryActivity.startActivity(v.getContext()));
+        binding.fab.setOnClickListener(v -> HistoryActivity.startActivity(v.getContext()));
 
     }
 
@@ -93,14 +81,14 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     @Override
     public void showItems(List<Photo> items) {
         mainAdapter.updateList(items);
-        progressLoading.setVisibility(View.GONE);
+        binding.progressLoading.setVisibility(View.GONE);
         mIsLoading = false;
     }
 
     @Override
     public void addToItems(List<Photo> items) {
         mainAdapter.addToList(items);
-        progressLoading.setVisibility(View.GONE);
+        binding.progressLoading.setVisibility(View.GONE);
         mIsLoading = false;
     }
 
@@ -120,7 +108,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                progressLoading.setVisibility(View.VISIBLE);
+                binding.progressLoading.setVisibility(View.VISIBLE);
                 mMainPresenter.search(query);
                 mIsLoading = true;
                 return true;

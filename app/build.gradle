@@ -20,6 +20,10 @@ android {
         abortOnError false
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     signingConfigs {
         // You must set up an environment var before release signing
         // Run: export APP_KEY={password}
@@ -70,7 +74,6 @@ android {
             debuggable true
             multiDexEnabled false
 
-            proguardFile '../proguard/proguard-butterknife-7.pro'
             proguardFile '../proguard/proguard-androidannotations.pro'
             proguardFile '../proguard/proguard-rx-java.pro'
             proguardFile '../proguard/proguard-square-dagger.pro'
@@ -103,7 +106,6 @@ android {
 
 dependencies {
     final DAGGER_VERSION = '2.2'
-    final BUTTERKNIFE_VERSION = '8.1.0'
     final SUPPORT_LIBRARY_VERSION = '25.0.1'
     final RETROFIT_VERSION = '2.1.0'
     final PLAY_SERVICES_VERSION = '10.0.0'
@@ -114,7 +116,6 @@ dependencies {
     def daggerCompiler = "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
 
     // APT dependencies
-    apt "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
     apt 'com.squareup:javapoet:1.7.0'
     apt daggerCompiler
     apt "com.github.Raizlabs.DBFlow:dbflow-processor:$DBFLOW_VERSION"
@@ -124,8 +125,6 @@ dependencies {
     debugCompile "com.facebook.stetho:stetho:$STETHO_VERSION"
     debugCompile "com.facebook.stetho:stetho-okhttp3:$STETHO_VERSION"
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-//    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-//    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
     compile "com.github.Raizlabs.DBFlow:dbflow-core:$DBFLOW_VERSION"
     compile "com.github.Raizlabs.DBFlow:dbflow:$DBFLOW_VERSION"
@@ -134,7 +133,6 @@ dependencies {
     compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
     compile group: 'com.google.code.gson', name: 'gson', version: '2.4'
-    compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.jakewharton.timber:timber:4.3.1'
     compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"

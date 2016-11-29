@@ -12,7 +12,7 @@ import timber.log.Timber;
 
 public class BaseApplication extends Application {
 
-    ApplicationComponent mApplicationComponent;
+    private ApplicationComponent mApplicationComponent;
 
     @Override
     public void onCreate() {
@@ -37,7 +37,7 @@ public class BaseApplication extends Application {
 
     // Needed to replace the component with a test specific one
     public void setComponent(ApplicationComponent applicationComponent) {
-        mApplicationComponent = applicationComponent;
+        this.mApplicationComponent = applicationComponent;
         Timber.plant(getComponent().loggingTree());
     }
 }

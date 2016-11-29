@@ -24,23 +24,6 @@ android {
         enabled = true
     }
 
-    signingConfigs {
-        // You must set up an environment var before release signing
-        // Run: export APP_KEY={password}
-        release {
-            storeFile file('/Users/abed/.android/debug.keystore')
-            keyAlias 'androiddebugkey'
-            storePassword 'android'
-            keyPassword 'android'
-        }
-        debug {
-            storeFile file('/Users/abed/.android/debug.keystore')
-            keyAlias 'androiddebugkey'
-            storePassword 'android'
-            keyPassword 'android'
-        }
-    }
-
     sourceSets {
         String sharedTestDir = 'src/sharedTest/java'
         test {
@@ -67,7 +50,7 @@ android {
             // to be changed to the release key
             buildConfigField "Integer", "FLICKR_PAGE_LOADING_SIZE", "33"
 
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             zipAlignEnabled true
